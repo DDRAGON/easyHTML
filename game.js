@@ -54,7 +54,7 @@ function drawBullet() {
             y: game.shooter.y
         };
         const newBullet = document.createElement("span");
-        newBullet.innerHTML = "❗️"; // 
+        newBullet.innerHTML = "❗️";
         newBullet.style.position = "absolute";
         newBullet.style.fontSize = '12px';
         newBullet.style.left = bulletObj.x + 8 + 'px';
@@ -206,7 +206,7 @@ function checkConflict() {
 function addScore(addScore) {
     game.score.point += addScore;
     const beforeLevel = game.level;
-    game.level = Math.floor(game.score.point / 5000) + 1;
+    game.level = Math.floor(game.score.point / 3000) + 1;
     game.score.element.innerHTML = game.score.point + ':level' + game.level;
     if (beforeLevel < game.level) {
         setInfo('↑ level up ↑', 50);
