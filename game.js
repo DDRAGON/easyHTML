@@ -17,7 +17,7 @@ let counter = 0;
 function backgroundDraw() {
     if (Math.floor(Math.random() * Math.floor(20 / game.level)) <= 0) {
         const newStarX = Math.floor(Math.random() * windowWidth);
-        const newStarSize = Math.floor(Math.random() * 15) + 1;
+        const newStarSize = Math.floor(Math.random() * 8) + 8;
         const starObj = {};
         const newStar = document.createElement("span");
         newStar.innerHTML = "⭐️";
