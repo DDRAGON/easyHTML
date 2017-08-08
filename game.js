@@ -59,7 +59,7 @@ function drawBullet() {
         newBullet.style.color = 'red';
         newBullet.style.position = "absolute";
         newBullet.style.fontSize = '12px';
-        newBullet.style.left = bulletObj.x + 8 + 'px';
+        newBullet.style.left = bulletObj.x + 9 + 'px';
         newBullet.style.top = bulletObj.y + 'px';
         bulletObj.element = newBullet;
 
