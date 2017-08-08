@@ -123,6 +123,7 @@ function drawEnemy() {
         const enemyObj = {};
         const newEnemy = document.createElement("span");
         newEnemy.innerHTML = "👾";
+        newEnemy.style.color = '#800080';
         newEnemy.style.position = "absolute";
         newEnemy.style.fontSize = '30px';
         newEnemy.style.left = newEnemyX + 'px';
