@@ -21,6 +21,7 @@ function backgroundDraw() {
         const starObj = {};
         const newStar = document.createElement("span");
         newStar.innerHTML = "⭐️";
+        newStar.style.color = '#EEEE00';
         newStar.style.position = "absolute";
         newStar.style.fontSize = newStarSize + 'px';
         newStar.style.left = newStarX + 'px';
@@ -55,6 +56,7 @@ function drawBullet() {
         };
         const newBullet = document.createElement("span");
         newBullet.innerHTML = "❗️";
+        newBullet.style.color = 'red';
         newBullet.style.position = "absolute";
         newBullet.style.fontSize = '12px';
         newBullet.style.left = bulletObj.x + 8 + 'px';
@@ -165,6 +167,7 @@ function checkConflict() {
                 enemyObj.y + 15 >= bulletObj.y
             ) {
                 enemyObj.element.innerHTML = '💥';
+                enemyObj.element.style.color = 'red';
                 enemyObj.status = 'dead';
                 game.bullets.splice(bulletKey, 1);
                 document.getElementById("game").removeChild(bulletObj.element);
@@ -182,6 +185,7 @@ function checkConflict() {
         ) {
             game.shooter.status = 'dead';
             game.shooter.element.innerHTML = '💥';
+            game.shooter.element.style.color = 'red';
         }
 
         if (enemyObj.y >= windowHeight || enemyObj.x >= windowWidth - 15) {
@@ -200,6 +204,7 @@ function checkConflict() {
         ) {
             game.shooter.status = 'dead';
             game.shooter.element.innerHTML = '💥';
+            game.shooter.element.style.color = 'red';
         }
     });
 }
