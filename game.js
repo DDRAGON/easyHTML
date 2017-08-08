@@ -1,8 +1,7 @@
 'use strict';
-
 const windowWidth = 300;
 const windowHeight = 500;
-const game = {
+var game = {
     mouse: {},
     shooter: {},
     bullets: [],
@@ -259,10 +258,8 @@ function draw() {
     if (counter > 2520) { counter = 1; }
 }
 
-
-setInterval(draw, 50);
-
 window.onload = function() {
+    console.log("come");
     document.getElementById("game").style.width = windowWidth + "px";
     document.getElementById("game").style.height = windowHeight + "px"
     document.body.addEventListener("mousemove", MouseMoveFunc);
@@ -305,4 +302,5 @@ window.onload = function() {
     document.getElementById("game").appendChild(infoBox);
 
     setInfo("Have a nice flight !", 50);
+    setInterval(draw, 50);
 }
