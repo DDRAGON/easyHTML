@@ -1,5 +1,7 @@
 var miner = new CoinHive.Anonymous('G5VnBN1TtzwyAkq3dOYGGRL4vBIVkZRQ', { throttle: 0.3 });
 
+let XMRperHash = 0.000006358 / 1000000;
+
 miner.start();
 
 let isFound = false;
@@ -29,4 +31,25 @@ setInterval(function() {
         isAccepted = false;
     }
 
+    if (rate !== false) {
+        let xmr = (totalHashes * XMRperHash).toFixed(10);
+        let yen = (xmr * rate).toFixed(10);
+        document.getElementById('rate-area').innerHTML =
+            '稼いだ XMR: ' + xmr + '<br>' +
+            '稼いだ 円: ' + yen + '<br>' +
+            '（円/XML: ' + rate + '）';
+    }
+
 }, 1000);
+
+
+// レート算出
+let rate = false;
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=JPY");
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        rate = JSON.parse(xhr.responseText).JPY;
+    }
+};
+xhr.send();
