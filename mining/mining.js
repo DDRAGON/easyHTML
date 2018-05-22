@@ -15,12 +15,15 @@ setInterval(function() {
     document.getElementById('display-area').innerHTML =
         'hashesPerSecond: ' + hashesPerSecond + '<br>' +
         'totalHashes: ' + totalHashes + '<br>' +
-        'acceptedHashes: ' + acceptedHashes + '<br>';
+        'acceptedHashes: ' + acceptedHashes + '<br>' +
+        'Your Threads: ' + miner.getNumThreads() + '<br>';
 
+    document.getElementById('found-area').innerHTML = '';
     if (isFound) {
         document.getElementById('found-area').innerHTML = 'hash found!';
         isFound = false;
     }
+    document.getElementById('accepted-area').innerHTML = '';
     if (isAccepted) {
         document.getElementById('accepted-area').innerHTML = 'hash accepted!';
         isAccepted = false;
