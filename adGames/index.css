@@ -11,3 +11,8 @@ p#goal {
     -moz-border-radius: 10px;
     /* Firefox用 */
 }
+
+p#support {
+    z-index: 5;
+    white-space: nowrap;
+}

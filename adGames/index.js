@@ -4,6 +4,10 @@ const goal = {
     height: 15
 };
 
+const support = {
+    element: document.getElementById('support')
+};
+
 const ad1 = {
     element: document.getElementById('ad1'),
     width: 200,
@@ -57,18 +61,34 @@ const ads = {
 
 const width = window.innerWidth;
 const height = window.innerHeight;
+let level = 0
+const pair = location.search.substring(1).split('&');
+for (var i = 0; pair[i]; i++) {
+    var keyValue = pair[i].split('=');
+    var key = keyValue[0];
+    var value = keyValue[1];
+    if (key === 'level') {
+        level = Number(value);
+    }
+}
 
-function init() {
+function init(level) {
     goal.element.style.position = 'absolute';
     goal.element.style.backgroundColor = 'red';
     goal.x = Math.random() * (width - goal.width);
     goal.y = Math.random() * (height - goal.height);
     goal.element.style.left = goal.x + 'px';
     goal.element.style.top = goal.y + 'px';
+    support.element.style.position = 'absolute';
+    support.element.style.backgroundColor = 'white';
+    support.element.style.color = 'red';
+    support.element.style.whiteSpace = 'nowrap';
+    support.element.style.left = goal.x - 40 + 'px';
+    support.element.style.top = goal.y - 40 + 'px';
     goal.element.style.width = goal.width + 'px';
     goal.element.style.height = goal.height + 'px';
-    goal.moveX = Math.random() * 5 + 1;
-    goal.moveY = Math.random() * 5 + 1;
+    goal.moveX = Math.random() * 2 + 1 + level;
+    goal.moveY = Math.random() * 2 + 1 + level;
     if (Math.floor(Math.random() * 2) === 0) {
         goal.moveX *= -1;
     }
@@ -83,8 +103,8 @@ function init() {
         ad.element.style.position = 'absolute';
         ad.element.style.left = ad.x + 'px';
         ad.element.style.top = ad.y + 'px';
-        ad.moveX = Math.random() * 5 + 1;
-        ad.moveY = Math.random() * 5 + 1;
+        ad.moveX = Math.random() * 5 + 1 + level * 3;
+        ad.moveY = Math.random() * 5 + 1 + level * 3;
         if (Math.floor(Math.random() * 2) === 0) {
             ad.moveX *= -1;
         }
@@ -118,11 +138,24 @@ function ticker() {
     goal.y += goal.moveY;
     goal.element.style.left = goal.x + 'px';
     goal.element.style.top = goal.y + 'px';
+    support.element.style.left = goal.x - 40 + 'px';
+    support.element.style.top = goal.y - 40 + 'px';
 }
 
 function goalFunc() {
     alert('ゲームクリア！');
+    location.href = location.href.split('?')[0] + '?level=' + (level + 1);
 }
 
-init();
+console.log(location.protocol);
+console.log(location.host);
+console.log(location.hostname);
+console.log(location.pathname);
+console.log(location.origin);
+console.log(location.href);
+const nextURL = location.href.split('?')[0] + '?level=' + (level + 1);
+console.log(nextURL);
+
+
+init(level);
 setInterval(ticker, 50);
