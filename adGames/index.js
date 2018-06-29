@@ -147,15 +147,9 @@ function goalFunc() {
     location.href = location.href.split('?')[0] + '?level=' + (level + 1);
 }
 
-console.log(location.protocol);
-console.log(location.host);
-console.log(location.hostname);
-console.log(location.pathname);
-console.log(location.origin);
-console.log(location.href);
-const nextURL = location.href.split('?')[0] + '?level=' + (level + 1);
-console.log(nextURL);
-
-
 init(level);
 setInterval(ticker, 50);
+
+countDown(function () {
+    
+});
