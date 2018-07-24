@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>three.js css3d - youtube</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			html, body {
+				height: 100%;
+				overflow: hidden;
+			}
+			#blocker {
+				position: absolute;
+				/* background-color: rgba(255, 0, 0, 0.5); */
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="three.js"></script>
+		<script src="TrackballControls.js"></script>
+		<script src="CSS3DRenderer.js"></script>
+
+		<div id="container"></div>
+        <div id="blocker"></div>
+        <div id="ad1">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad2">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad3">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad4">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad5">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad6">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad7">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad8">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="ad9">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 336x280 for SMDS レクタングル大 -->
+            <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2941365993317354" data-ad-slot="8471038462"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+		<script>
+			var camera, scene, renderer;
+			var controls;
+			var Element = function ( id, x, y, z, ry ) {
+                //var div = document.createElement( 'div' );
+                var div = document.getElementById(id);
+				div.style.width = '336px';
+				div.style.height = '280px';
+                div.style.backgroundColor = '#000';
+				var object = new THREE.CSS3DObject( div );
+				object.position.set( x, y, z );
+				object.rotation.y = ry;
+				return object;
+			};
+			init();
+			animate();
+			function init() {
+				var container = document.getElementById( 'container' );
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
+				camera.position.set( 0, 1000, 1200 );
+				scene = new THREE.Scene();
+				renderer = new THREE.CSS3DRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+                var group = new THREE.Group();
+                /*
+				group.add( new Element( 'ad1', 0, 0, 240, 0 ) );
+				group.add( new Element( 'ad2', 240, 0, 0, Math.PI / 2 ) );
+				group.add( new Element( 'ad3', 0, 0, - 240, Math.PI ) );
+                group.add( new Element( 'ad4', - 240, 0, 0, - Math.PI / 2 ) );
+                group.add( new Element( 'ad5', 0, 0, 240, 0 ) );
+				group.add( new Element( 'ad6', 240, 0, 0, Math.PI / 2 ) );
+				group.add( new Element( 'ad7', 0, 0, - 240, Math.PI ) );
+                group.add( new Element( 'ad8', - 240, 0, 0, - Math.PI / 2 ) );
+                */
+                function getRadian(kakudo) {
+                    return kakudo * Math.PI / 180;
+                }
+               var idNum = 9;
+               var beforeXmigiHazi = 0;
+               var beforeZmigiHazi = 0;
+               var x = 0;
+               var z = 0;
+               var rotateY = 0;
+               var r = (336 / 2);
+               for (var id=1; id <= idNum; id++) {
+                    if (id === 1) {
+                       beforeXmigiHazi = 336;
+                       beforeZmigiHazi = 0;
+                    } else if (id === 2) {
+                       var ragian = getRadian(360 / idNum);
+                       x = beforeXmigiHazi;
+                       var kakudo = (360 / 9);
+                       rotateY = getRadian(kakudo);
+                       var moveX = r - r * Math.cos(ragian);
+                       x -= moveX;
+                       var moveZ = r * Math.sin(ragian);
+                       z = beforeZmigiHazi - moveZ;
+
+                       beforeXmigiHazi = x + 2 * r * Math.cos(ragian);
+                       beforeZmigiHazi = z - 2 * r * Math.sin(ragian);
+                    } else if (id === 3){
+                        var kakudo = (360 * (id - 2)/ idNum);
+                        var ragian = getRadian(kakudo);
+                        rotateY = getRadian((360 * (id - 1) / idNum));
+                        x = beforeXmigiHazi;
+                        var moveX = r * Math.cos(ragian) - r * Math.cos(rotateY);
+                        x -= moveX;
+                        var moveZ = r * Math.sin(rotateY) - r * Math.sin(ragian);
+                        z = beforeZmigiHazi - moveZ;
+
+                        beforeXmigiHazi = x + 2 * r * Math.cos(rotateY);
+                        beforeZmigiHazi = z - 2 * r * Math.sin(rotateY);
+                    } else {
+                        var kakudo = (360 * (id - 2)/ idNum);
+                        var ragian = getRadian(kakudo);
+                        rotateY = getRadian((360 * (id - 1) / idNum));
+                        x = beforeXmigiHazi;
+                        var moveX = r * Math.cos(ragian) - r * Math.cos(rotateY);
+                        x -= moveX;
+                        var moveZ = r * Math.sin(rotateY) - r * Math.sin(ragian);
+                        z = beforeZmigiHazi - moveZ;
+
+                        beforeXmigiHazi = x + 2 * r * Math.cos(rotateY);
+                        beforeZmigiHazi = z - 2 * r * Math.sin(rotateY);
+                    }
+                    group.add(
+                        new Element(
+                            'ad' + id,
+                            x,
+                            0,
+                            z,
+                            rotateY
+                        )
+                    );
+               }
+				scene.add( group );
+				controls = new THREE.TrackballControls( camera );
+				controls.rotateSpeed = 4;
+				window.addEventListener( 'resize', onWindowResize, false );
+				// Block iframe events when dragging camera
+				var blocker = document.getElementById( 'blocker' );
+				blocker.style.display = 'none';
+				document.addEventListener( 'mousedown', function () { blocker.style.display = ''; } );
+				document.addEventListener( 'mouseup', function () { blocker.style.display = 'none'; } );
+			}
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+			function animate() {
+				requestAnimationFrame( animate );
+				controls.update();
+				renderer.render( scene, camera );
+			}
+		</script>
+	</body>
+</html>
