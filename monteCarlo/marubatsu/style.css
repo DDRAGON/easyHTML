@@ -1,0 +1,33 @@
+
+div.flex-box {
+  display:flex;
+}
+
+div.click-box {
+  width: 100px;
+  height: 100px;
+  border: inset 1px #000000;
+}
+
+div.table-index {
+  width: 20px;
+  height: 20px;
+}
+
+div.table-index-row {
+  text-align: center;
+  vertical-align: bottom;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100px;
+  height: 20px;
+}
+
+div.table-index-col {
+  text-align: right;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20px;
+  height: 100px;
+}
