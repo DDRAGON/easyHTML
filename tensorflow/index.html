@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script>
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="randomness"></canvas>
+  <img src="submarine2L.png" id="grant">
+  <script>
+    // テンソルを画像に変換
+    const bigmess  = tf.randomUniform([400, 400, 3]);
+    const myCanvas = document.getElementById('randomness');
+    tf.browser.toPixels(bigmess, myCanvas).then(() => {
+      bigmess.dispose();
+      console.log('Make sure we clean up', tf.memory().numTensors);
+    });
+
+    // 画像をテンソルに変換
+    const grantImage  = document.getElementById('grant');
+    const grantTensor = tf.browser.fromPixels(grantImage)
+    console.log(`Successful conversion from DOM to a ${grantTensor.shape} tensor`);
+    // その２ new Image からテンソルに変換
+    const cake = new Image()
+    cake.crossOrigin = 'anonymouse'
+    cake.src = 'submarine2L.png';
+    cake.onload = () => {
+      const cakeTensor = tf.browser.fromPixels(cake);
+      console.log(`Successful conversion from Image() to a ${cakeTensor.shape} tensor`);
+    }
+  </script>
+</body>
+</html>
